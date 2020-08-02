@@ -13,18 +13,22 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 $(call inherit-product, device/xiaomi/onclite/device.mk)
 
 # Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/legion/config/common_full_phone.mk)
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := lineage_onclite
+PRODUCT_NAME := legion_onclite
 PRODUCT_DEVICE := onclite
-PRODUCT_BRAND := Xiaomi
+PRODUCT_BRAND := xiaomi
 PRODUCT_MODEL := Redmi 7
-PRODUCT_MANUFACTURER := Xiaomi
+PRODUCT_MANUFACTURER := xiaomi
 
-BUILD_FINGERPRINT := "xiaomi/onc/onc:9/PKQ1.181021.001/V11.0.3.0.PFLMIXM:user/release-keys"
+TARGET_BOOT_ANIMATION_RES += 720
+PRODUCT_BUILD_PROP_OVERRIDES += PRIVATE_BUILD_DESC="onc-user 10 QKQ1.191008.001 V11.0.2.0.QFLCNXM release-keys"
 
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="onc-user 9 PKQ1.181021.001 V11.0.3.0.PFLMIXM release-keys"
+# Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
+BUILD_FINGERPRINT := xiaomi/onc/onc:10/QKQ1.191008.001/V11.0.2.0.QFLCNXM:user/release-keys
+
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.build.fingerprint=$(BUILD_FINGERPRINT)
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi

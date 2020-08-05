@@ -18,19 +18,20 @@ $(call inherit-product, vendor/bootleggers/config/common_full_phone.mk)
 # Device identifier. This must come after all inclusions.
 PRODUCT_NAME := bootleg_onclite
 PRODUCT_DEVICE := onclite
-PRODUCT_BRAND := xiaomi
+PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi 7
-PRODUCT_MANUFACTURER := xiaomi
+PRODUCT_MANUFACTURER := Xiaomi
+
+# Bootanimation res
+TARGET_BOOT_ANIMATION_RES := 720x1520
+IS_PHONE := true
+
+BUILD_FINGERPRINT := "google/coral/coral:10/QQ3A.200805.001/6578210:user/release-keys"
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-  DEVICE_MAINTAINERS="johnmart19"
-
-TARGET_BOOT_ANIMATION_RES += 720
-
-# Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
-BUILD_FINGERPRINT := Xiaomi/umi/umi:10/QKQ1.191117.002/V11.0.15.0.QJBCNXM:user/release-keys
-
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    ro.build.fingerprint=$(BUILD_FINGERPRINT)
+    PRIVATE_BUILD_DESC="onc-user 9 PKQ1.181021.001 V10.3.4.0.PFLMIXM release-keys" \
+    PRODUCT_NAME="onc" \
+    TARGET_DEVICE="onc" \
+    DEVICE_MAINTAINERS="johnmart19"
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi

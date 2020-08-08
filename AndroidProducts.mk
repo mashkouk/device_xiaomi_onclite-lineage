@@ -1,2 +1,2 @@
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/legion_onclite.mk
+    $(LOCAL_DIR)/bootleg_onclite.mk
